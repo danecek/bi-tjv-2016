@@ -5,32 +5,36 @@
  */
 package bag;
 
+import java.util.Iterator;
+
 /**
  *
  * @author danecek
  */
-public class Bag {
+public class Bag implements Iterable<Integer> {
 
     private Integer[] data;
     private int size;
 
     public Bag(int initLength) {
-        if (initLength <= 0)
+        if (initLength <= 0) {
             throw new IllegalArgumentException("must be positive");
+        }
         data = new Integer[initLength];
     }
 
     public Bag() {
         this(100);
     }
-    
+
     public boolean isFull() {
-       return size == data.length; 
+        return size == data.length;
     }
 
     public void add(Integer e) {
-        if (isFull())
+        if (isFull()) {
             throw new BagException("is full");
+        }
         data[size++] = e;
     }
 
@@ -76,6 +80,28 @@ public class Bag {
         }
         sb.append(']');
         return sb.toString();
+    }
+
+    @Override
+    public Iterator<Integer> iterator() {
+        //   return new BagIterator(this);
+        return new Iterator<Integer>() {
+
+            int actaulPos = 0;
+
+            @Override
+            public boolean hasNext() {
+                return actaulPos < size();
+            }
+
+            @Override
+            public Integer next() {
+                return data[actaulPos++];
+                // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+        }; //    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
     }
 
 }
