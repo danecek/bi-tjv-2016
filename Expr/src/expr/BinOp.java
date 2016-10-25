@@ -34,10 +34,10 @@ public class BinOp extends Expr {
                 return lv * rv;
             case DIV:
                 return lv / rv;
-            default: throw new RuntimeException();
+            default:
+                throw new RuntimeException();
         }
     }
-
 
     /**
      * @return the left
@@ -52,17 +52,35 @@ public class BinOp extends Expr {
     public Expr getRight() {
         return this.right;
     }
-    
+
     private static String wrap(String s) {
         return "(" + s + ")";
     }
 
     @Override
     public String toString() {
-        return wrap(left.toString()) + op + wrap(right.toString());
-                //enerated methods, choose Tools | Templates.
+        String ls = left.toString();
+        if (left.priority() < priority()) {
+            ls = wrap(ls);
+        }
+        String rs = right.toString();
+        if (right.priority() < priority()) {
+            rs = wrap(rs);
+        }
+        return ls + op + rs;
+        //enerated methods, choose Tools | Templates.
     }
-    
-    
+
+    @Override
+    int priority() {
+        return op.getPriority();
+    }
+
+    @Override
+    void accept(ExprVisitor visitor) {
+        left.accept(visitor);
+        visitor.visit(this);
+        right.accept(visitor);
+    }
 
 }

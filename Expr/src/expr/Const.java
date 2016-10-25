@@ -34,6 +34,16 @@ public class Const extends Expr {
     public String toString() {
         return Integer.toString(value);
     }
+
+    @Override
+    int priority() {
+        return Integer.MAX_VALUE;
+    }
+
+    @Override
+    void accept(ExprVisitor visitor) {
+        visitor.visit(this);
+    }
     
     
 

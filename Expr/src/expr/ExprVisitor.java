@@ -9,10 +9,11 @@ package expr;
  *
  * @author danecek
  */
-public abstract class Expr {
+public interface ExprVisitor {
+
+    public void visit(Const cnst);
     
-    abstract int eval();
-    abstract int priority();
-    abstract void accept(ExprVisitor visitor);
-    
+    public void visit(BinOp binOP);
+
+    public void visit(Var var);
 }
