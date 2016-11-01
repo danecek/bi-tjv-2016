@@ -9,7 +9,7 @@ package expr;
  *
  * @author danecek
  */
-public class Const extends Expr {
+public class Const implements Expr {
 
     private int value;
 
@@ -18,7 +18,7 @@ public class Const extends Expr {
     }
 
     @Override
-    int eval() {
+    public int eval() {
         return getValue();
         //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -36,15 +36,29 @@ public class Const extends Expr {
     }
 
     @Override
-    int priority() {
+    public int priority() {
         return Integer.MAX_VALUE;
     }
 
     @Override
-    void accept(ExprVisitor visitor) {
+    public void accept(ExprVisitor visitor) {
         visitor.visit(this);
     }
-    
-    
+
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof Const)) {
+            return false;
+        }
+        return ((Const) obj).value == value;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 47 * hash + this.value;
+        return hash;
+    }
 
 }

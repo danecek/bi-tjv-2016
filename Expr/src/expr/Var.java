@@ -6,7 +6,7 @@
 package expr;
 
 
-public class Var extends Expr implements Comparable<Var> {
+public class Var implements Expr, Comparable<Var> {
 
     private final String name;
 
@@ -15,17 +15,17 @@ public class Var extends Expr implements Comparable<Var> {
     }
 
     @Override
-    int eval() {
+    public int eval() {
         return Memory.inst.getValue(this);
     }
 
     @Override
-    int priority() {
+    public int priority() {
         return Integer.MAX_VALUE;
     }
 
     @Override
-    void accept(ExprVisitor visitor) {
+    public void accept(ExprVisitor visitor) {
         visitor.visit(this);
     }
 

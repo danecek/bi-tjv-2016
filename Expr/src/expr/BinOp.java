@@ -5,11 +5,13 @@
  */
 package expr;
 
+import java.util.Objects;
+
 /**
  *
  * @author danecek
  */
-public class BinOp extends Expr {
+public class BinOp implements Expr {
 
     private final Operation op;
     private final Expr left;
@@ -22,7 +24,7 @@ public class BinOp extends Expr {
     }
 
     @Override
-    int eval() {
+    public int eval() {
         int lv = left.eval();
         int rv = right.eval();
         switch (op) {
@@ -72,15 +74,35 @@ public class BinOp extends Expr {
     }
 
     @Override
-    int priority() {
+    public int priority() {
         return op.getPriority();
     }
 
     @Override
-    void accept(ExprVisitor visitor) {
+    public void accept(ExprVisitor visitor) {
         left.accept(visitor);
         visitor.visit(this);
         right.accept(visitor);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof BinOp)) {
+            return false;
+        }
+        BinOp that = (BinOp) obj;
+        return this.op.equals(that.op)
+                && left.equals(that.left)
+                && right.equals(that.right);
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 89 * hash + Objects.hashCode(this.op);
+        hash = 89 * hash + Objects.hashCode(this.left);
+        hash = 89 * hash + Objects.hashCode(this.right);
+        return hash;
     }
 
 }
