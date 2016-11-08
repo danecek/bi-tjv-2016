@@ -5,8 +5,9 @@
  */
 package customers;
 
+import customers.integration.CustomerDAO;
 import customers.integration.CustomerException;
-import customers.integration.DerbyCustomerDAO;
+import customers.integration.DAOFactory;
 import customers.integration.DerbyDAOFactory;
 import customers.model.Customer;
 
@@ -18,8 +19,8 @@ public class Customers {
 
 
     public static void main(String[] args) throws CustomerException {
-        DerbyDAOFactory factory = new DerbyDAOFactory(); // TODO code application logic here
-        DerbyCustomerDAO customerDAO = factory.getCustomerDAO();
+        DAOFactory factory = new DerbyDAOFactory(); // TODO code application logic here
+        CustomerDAO customerDAO = factory.getCustomerDAO();
         customerDAO.create(new Customer("Tom"));
         System.out.println(customerDAO.all());
     }

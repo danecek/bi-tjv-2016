@@ -1,6 +1,7 @@
 
 package customers.business;
 
+import customers.model.Order;
 import customers.integration.CustomerException;
 import customers.integration.DAOFactory;
 import customers.model.Customer;

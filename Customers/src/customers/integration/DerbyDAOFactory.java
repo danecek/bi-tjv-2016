@@ -42,7 +42,7 @@ public class DerbyDAOFactory implements DAOFactory {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(DAODerbyFactory.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DerbyDAOFactory.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     private static final Logger LOG = Logger.getLogger(DerbyDAOFactory.class.getName());
