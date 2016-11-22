@@ -1,14 +1,3 @@
-/Bag/nbproject/private/
-/Bag/build/
-/Bag/dist/
-/Expr/nbproject/private/
-/Expr/build/
-/Expr/dist/
-/ArraySet/nbproject/private/
-/FileCopy/nbproject/private/
-/FileCopy/build/
-/FileCopy/dist/
-/ThreadHW/nbproject/private/
-/ThreadHW/build/
-/JavaFXHW/nbproject/private/
-/JavaFXHW/build/
+**/dist/**
+*.jar
+*.log

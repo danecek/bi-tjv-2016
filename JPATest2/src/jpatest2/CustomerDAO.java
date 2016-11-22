@@ -27,6 +27,7 @@ public class CustomerDAO {
         try {
             em.persist(o);
             Customer c = em.find(Customer.class, custId);
+            c.getOrders().add(o);
             o.setCustomer(c);
             et.commit();
         } catch (Exception ex) {

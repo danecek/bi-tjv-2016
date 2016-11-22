@@ -1,10 +1,10 @@
 ----------------------------------------------------------------
-Mon Nov 21 18:09:51 CET 2016:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.13.1.1 - (1765088): instance a816c00e-0158-87dd-8544-00000b756ef0 
-on database directory /home/users/d/danecek/CustomerDB with class loader sun.misc.Launcher$AppClassLoader@55f96302 
+Tue Nov 22 11:31:19 CET 2016:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.13.1.1 - (1765088): instance a816c00e-0158-8b97-0148-000005b3f500 
+on database directory /home/users/d/danecek/CustomerDB with class loader sun.misc.Launcher$AppClassLoader@33909752 
 Loaded from file:/home/users/d/danecek/Vyuka/bi-tjv/bi-tjv-2016/Customers/derby.jar
 java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_111-b14
+java.runtime.version=1.8.0_65-b17
 user.dir=/home/users/d/danecek/Vyuka/bi-tjv/bi-tjv-2016/JPATest2
 os.name=Linux
 os.arch=amd64
