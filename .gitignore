@@ -1,3 +1,5 @@
 **/dist/**
 *.jar
 *.log
+**/*.class
+**/build/**
