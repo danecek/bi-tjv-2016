@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://pc351-103:8080/SoapHW/HelloWebServiceService?wsdl" uri="xml-resources/web-service-references/HelloWebServiceService/wsdl/pc351-103_8080/SoapHW/HelloWebServiceService.wsdl"/>
+    <system systemId="http://pc351-103:8080/SoapHW/HelloWebServiceService?xsd=1" uri="xml-resources/web-service-references/HelloWebServiceService/wsdl/pc351-103_8080/SoapHW/HelloWebServiceService.xsd_1.xsd"/>
+</catalog>

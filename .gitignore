@@ -3,3 +3,8 @@
 *.log
 **/*.class
 **/build/**
+/SoapHW/nbproject/private/
+/ClientSoapHW/nbproject/private/
+/RestHW/nbproject/private/
+/ClinetRestHW/nbproject/private/
+/ClientRestHW/nbproject/private/
