@@ -5,36 +5,40 @@
  */
 package backing;
 
-import data.CustomersData;
+import business.CustomersFacade;
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
+import model.Customer;
 
 @Model
 public class DeleteCustomer {
 
-    private String name;
+
+    public Customer getC() {
+        return c;
+    }
+
+    
+    private Customer c;
 
     @Inject
-    CustomersData customersData;
+    CustomersFacade customersData;
 
     @PostConstruct
     public void init() {
         FacesContext fc = FacesContext.getCurrentInstance();
         ExternalContext ec = fc.getExternalContext();
         HttpServletRequest hr = (HttpServletRequest) ec.getRequest();
-        name = hr.getParameter("name");
-    }
-
-    public String getName() {
-        return name;
+        Long id = Long.parseLong(hr.getParameter("id"));
+        c = customersData.find(id);
     }
 
     public String delete() {
-        customersData.delete(name);
+        customersData.delete(c.getId());
         return "index?faces-redirect=true";
     }
 

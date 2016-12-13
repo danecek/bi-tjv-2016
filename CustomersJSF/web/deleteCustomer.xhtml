@@ -10,12 +10,14 @@
     <h:body>
         <h1>Delete customer</h1>
         <h:panelGrid columns="2">
+            <h:outputLabel value="Id"/>
+            <h:outputText value="#{deleteCustomer.c.id}"/>
             <h:outputLabel value="Name:"/>
-            <h:outputText value="#{deleteCustomer.name}"/>
+            <h:outputText value="#{deleteCustomer.c.name}"/>
         </h:panelGrid> 
         <h:form>
             <h:commandButton action="#{deleteCustomer.delete()}" value="Delete">
-                <f:param name="name" value="#{deleteCustomer.name}"/>
+                <f:param name="id" value="#{deleteCustomer.c.id}"/>
             </h:commandButton>
             <h:button outcome="index" value="Cancel"/>
         </h:form>

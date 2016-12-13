@@ -5,17 +5,18 @@
  */
 package backing;
 
-import data.CustomersData;
+import business.CustomersFacade;
 import java.util.List;
-import javax.enterprise.inject.Model;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
+import javax.inject.Named;
 import model.Customer;
 
-@Model //= @Named @RequestScoped
+@Named("indexb") @RequestScoped
 public class Index {
 
     @Inject
-    CustomersData customersData;
+    CustomersFacade customersData;
 
     public List<Customer> getCustomers() {
         return customersData.getCustomers();

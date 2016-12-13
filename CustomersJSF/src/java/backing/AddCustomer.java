@@ -5,7 +5,7 @@
  */
 package backing;
 
-import data.CustomersData;
+import business.CustomersFacade;
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 import model.Customer;
@@ -16,7 +16,7 @@ public class AddCustomer {
     private String name;
 
     @Inject
-    CustomersData customersData;
+    CustomersFacade customersData;
 
     public String add() {
         Customer c = new Customer(name);

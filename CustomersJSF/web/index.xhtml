@@ -2,23 +2,31 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
         <title>Facelet Title</title>
     </h:head>
     <h:body>
         <h1>Customers</h1>
-        <h:dataTable value="#{index.customers}" var="cust" border="1">
+        <c:if test="#{empty indexb.customers}">
+            <h2>No Customer</h2>
+            
+        </c:if>
+        <h:dataTable value="#{indexb.customers}" var="cust" border="1" rendered="#{not empty indexb.customers}">
+            <h:column>
+                <f:facet name="header">Id</f:facet>
+                    #{cust.id}
+            </h:column>
             <h:column>
                 <f:facet name="header">Name</f:facet>
                     #{cust.name}
             </h:column>
             <h:column>
                 <h:link outcome="deleteCustomer" value="Delete">
-                    <f:param name="name" value="#{cust.name}"/>
+                    <f:param name="id" value="#{cust.id}"/>
                 </h:link>
             </h:column>
-
         </h:dataTable>
         <h:link outcome="addCustomer">Add customer</h:link>
     </h:body>
