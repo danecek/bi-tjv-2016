@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title th:text="#{header.title}">Employees</title>
+        <link rel="stylesheet" href="../../../css/style.css"
+              th:href="@{/css/style.css}"/>
+    </head>
+    <body>
+        <table  border="1">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tr th:each="employee : ${employees}">
+                <td th:text="${employee.id}">3333</td>
+                <td th:text="${employee.name}">Bob</td>
+            </tr>
+        </table>
+        <a href="addCustomer.html" th:href="@{/employee/addCustomer}" 
+           th:text="#{addCustomer}">Add customer</a>
+    </body>
+</html>

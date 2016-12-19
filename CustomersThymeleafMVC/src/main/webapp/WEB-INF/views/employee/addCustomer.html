@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Add customer</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../../css/style.css"
+              th:href="@{/css/style.css}"/>
+    </head>
+    <body>
+        <div>        
+            <form action="index.html" th:action="@{/employee/addCustomer}"
+                  method="POST">
+                <span th:text="#{label.name}">Name:</span>
+                <input type="text" name="name" th:value="${errorValue}">
+                <span th:text="${errorMessage}" style="color: red">error message</span><br/>
+                <input type="submit"/>
+            </form>
+        </div>
+    </body>
+</html>
