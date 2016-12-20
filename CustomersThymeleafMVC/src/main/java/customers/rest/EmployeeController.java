@@ -1,6 +1,6 @@
-package com.example.rest.controller;
+package customers.rest;
 
-import com.example.model.EmployeeService;
+import customers.model.EmployeeService;
 import java.util.Collections;
 
 import javax.enterprise.context.RequestScoped;
@@ -22,7 +22,7 @@ public class EmployeeController {
     @GET
     @Path("index")
     public Viewable index() throws Exception {
-        return new Viewable("/employee/index.html",
+        return new Viewable("/index.html",
                 Collections.singletonMap("employees",
                         employeeService.getEmployees()));
     }
@@ -30,7 +30,7 @@ public class EmployeeController {
     @GET
     @Path("addCustomer")
     public Viewable addCustomer() throws Exception {
-        return new Viewable("/employee/addCustomer.html");
+        return new Viewable("/addCustomer.html");
     }
 
     @POST
@@ -40,7 +40,7 @@ public class EmployeeController {
             HashMap<String, Object> models = new HashMap<>();
             models.put("errorValue", name);
             models.put("errorMessage", "Too short!!!");
-            return new Viewable("/employee/addCustomer.html", models);
+            return new Viewable("/addCustomer.html", models);
         }
         employeeService.put(name);
         return index();

@@ -1,9 +1,8 @@
-package com.example.model;
+package customers.model;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 import java.util.SortedSet;
 import java.util.TreeMap;
 import javax.annotation.PostConstruct;
@@ -20,12 +19,8 @@ public class EmployeeService {
 
     @PostConstruct
     void init() {
-        put(new Employee(1, "Tom"));
-        put(new Employee(2, "Bob"));
-    }
-
-    public Optional<Employee> findByEmpId(Integer id) {
-        return Optional.ofNullable(new Employee(1, "Tom"));//employees.get(id));
+        put("Tom");
+        put("Bob");
     }
 
     public void put(Employee emp) {
@@ -33,8 +28,11 @@ public class EmployeeService {
     }
 
     public void put(String name) {
-        SortedSet<Integer> keys = (java.util.SortedSet<Integer>) employees.keySet();
-        put(new Employee(keys.last() + 1, name));
+        int id = 1;
+        if (!employees.isEmpty()) {
+            id = ((SortedSet<Integer>) employees.keySet()).last() + 1;
+        }
+        put(new Employee(id, name));
     }
 
 }

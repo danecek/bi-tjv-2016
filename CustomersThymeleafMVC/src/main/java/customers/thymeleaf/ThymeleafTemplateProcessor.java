@@ -1,4 +1,4 @@
-package com.example.rest.thymeleaf;
+package customers.thymeleaf;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -49,9 +49,11 @@ public class ThymeleafTemplateProcessor extends AbstractTemplateProcessor<String
             MultivaluedMap<String, Object> httpHeaders, OutputStream out) throws IOException {
         WebContext webContext = new WebContext(
                 httpServletRequest, httpServletResponse,
-                super.getServletContext(), httpServletRequest.getLocale());
-        Object model = viewable.getModel();
-        webContext.setVariables((Map<String, Object>) model);
+                //   super.
+                getServletContext()
+        //              ,httpServletRequest.getLocale()
+        );
+        webContext.setVariables((Map<String, Object>) viewable.getModel());
         try (Writer writer = new OutputStreamWriter(out, StandardCharsets.UTF_8)) {
             templateEngine.process(viewable.getTemplateName(), webContext, writer);
         }

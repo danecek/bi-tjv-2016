@@ -1,8 +1,8 @@
-package com.example.model;
+package customers.model;
 
 public class Employee {
 
-    private Integer id;
+    private final Integer id;
     private final String name;
 
     public Employee(Integer id, String name) {
