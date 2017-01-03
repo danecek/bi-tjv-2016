@@ -49,9 +49,7 @@ public class ThymeleafTemplateProcessor extends AbstractTemplateProcessor<String
             MultivaluedMap<String, Object> httpHeaders, OutputStream out) throws IOException {
         WebContext webContext = new WebContext(
                 httpServletRequest, httpServletResponse,
-                //   super.
                 getServletContext()
-        //              ,httpServletRequest.getLocale()
         );
         webContext.setVariables((Map<String, Object>) viewable.getModel());
         try (Writer writer = new OutputStreamWriter(out, StandardCharsets.UTF_8)) {

@@ -16,7 +16,7 @@ public class ApplicationConfig extends Application {
     @Override
     public Set<Class<?>> getClasses() {
         Set<Class<?>> c = new HashSet<>();
-        c.add(Generic2Resource.class);
+        c.add(GenericResource.class);
         return c;
     }
     
