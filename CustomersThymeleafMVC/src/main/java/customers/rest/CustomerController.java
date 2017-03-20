@@ -1,6 +1,6 @@
 package customers.rest;
 
-import customers.model.EmployeeService;
+import customers.model.CustomerService;
 import java.util.Collections;
 
 import javax.enterprise.context.RequestScoped;
@@ -14,17 +14,17 @@ import org.glassfish.jersey.server.mvc.Viewable;
 @Path("")
 @RequestScoped
 @Produces(MediaType.TEXT_HTML)
-public class EmployeeController {
+public class CustomerController {
 
     @Inject
-    private EmployeeService employeeService;
+    private CustomerService customerService;
 
     @GET
     @Path("index")
     public Viewable index() throws Exception {
         return new Viewable("/index.html",
-                Collections.singletonMap("employees",
-                        employeeService.getEmployees()));
+                Collections.singletonMap("customers",
+                        customerService.getCustomers()));
     }
 
     @GET
@@ -42,7 +42,7 @@ public class EmployeeController {
             models.put("errorMessage", "Too short!!!");
             return new Viewable("/addCustomer.html", models);
         }
-        employeeService.put(name);
+        customerService.put(name);
         return index();
     }
 

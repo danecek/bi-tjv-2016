@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Add customer</title>
+    </head>
+    <body>
+        <div>        
+            <form action="/CustomersMustacheMVC/customers/addCustomer" method="POST">
+                <span>Name:</span>
+                <input type="text" name="name" value="{{errorValue}}"/>
+                <span  style="color:red">{{errorMessage}}</span>
+                <br/>
+                <input type="submit"/>
+            </form>
+        </div>
+    </body>
+</html>

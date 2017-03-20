@@ -9,7 +9,7 @@
     </head>
     <body>
         <div>        
-            <form action="index.html" th:action="@{/employee/addCustomer}"
+            <form action="index.html" th:action="@{/customers/addCustomer}"
                   method="POST">
                 <span th:text="#{label.name}">Name:</span>
                 <input type="text" name="name" th:value="${errorValue}"/>

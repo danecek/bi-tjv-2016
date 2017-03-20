@@ -5,13 +5,13 @@ import javax.ws.rs.ApplicationPath;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.server.mvc.MvcFeature;
 
-@ApplicationPath("employee")
-public class EmployeesApplication extends ResourceConfig {
+@ApplicationPath("customers")
+public class CustomersApplication extends ResourceConfig {
 
-    public EmployeesApplication() {
+    public CustomersApplication() {
         register(MvcFeature.class);
         property(MvcFeature.TEMPLATE_BASE_PATH, "/WEB-INF/views/");
-        register(EmployeeController.class);
+        register(CustomerController.class);
         register(ThymeleafTemplateProcessor.class);
     }
 }

@@ -9,13 +9,13 @@ import javax.annotation.PostConstruct;
 import javax.inject.Singleton;
 
 @Singleton
-public class EmployeeService {
+public class CustomerService {
 
-    public List<Employee> getEmployees() {
+    public List<Customer> getCustomers() {
         return new ArrayList(employees.values());
     }
 
-    private final Map<Integer, Employee> employees = new TreeMap<>();
+    private final Map<Integer, Customer> employees = new TreeMap<>();
 
     @PostConstruct
     void init() {
@@ -23,7 +23,7 @@ public class EmployeeService {
         put("Bob");
     }
 
-    public void put(Employee emp) {
+    public void put(Customer emp) {
         employees.put(emp.getId(), emp);
     }
 
@@ -32,7 +32,7 @@ public class EmployeeService {
         if (!employees.isEmpty()) {
             id = ((SortedSet<Integer>) employees.keySet()).last() + 1;
         }
-        put(new Employee(id, name));
+        put(new Customer(id, name));
     }
 
 }

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <table>
+            {{#customers}}
+            <tr>
+                <td>
+                    {{id}}
+                </td>
+                <td>
+                    {{name}}
+                </td>
+            </tr>
+            {{/customers}}
+      </table>
+            <a href="/CustomersMustacheMVC/customers/addCustomer"
+               method="POST">Add customer</a>
+    </body>
+</html>

@@ -15,12 +15,12 @@
                     <th>Name</th>
                 </tr>
             </thead>
-            <tr th:each="employee : ${employees}">
-                <td th:text="${employee.id}">3333</td>
-                <td th:text="${employee.name}">Bob</td>
+            <tr th:each="customer : ${customers}">
+                <td th:text="${customer.id}">3333</td>
+                <td th:text="${customer.name}">Bob</td>
             </tr>
         </table>
-        <a href="addCustomer.html" th:href="@{/employee/addCustomer}" 
+        <a href="addCustomer.html" th:href="@{/customers/addCustomer}" 
            th:text="#{addCustomer}">Add customer</a>
     </body>
 </html>

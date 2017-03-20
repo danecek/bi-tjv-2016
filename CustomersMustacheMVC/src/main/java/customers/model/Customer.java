@@ -1,11 +1,11 @@
 package customers.model;
 
-public class Employee {
+public class Customer {
 
     private final Integer id;
     private final String name;
 
-    public Employee(Integer id, String name) {
+    public Customer(Integer id, String name) {
         this.id = id;
         this.name = name;
     }
